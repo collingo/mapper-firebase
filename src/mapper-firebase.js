@@ -14,8 +14,8 @@ FirebaseAdaptor.prototype = {
   onChange: function(callback) {
     this.baseref.on('child_changed', this._callCallbackWithSnapshotValue.bind(this, callback));
   },
-  _resolvePromiseWithSnapshotValue: function(promise, snapshot) {
-    promise.resolve(snapshot.val());
+  _resolvePromiseWithSnapshotValue: function(deferred, snapshot) {
+    deferred.resolve(snapshot.val());
   },
   _callCallbackWithSnapshotValue: function(callback, snapshot) {
     callback(snapshot.name(), snapshot.val());
